@@ -1,0 +1,38 @@
+First Query :
+SELECT  FirstName , LastName , City  , sum(Total) as Total_paid
+FROM Customer c
+join  Invoice i
+WHERE c.CustomerId=i.CustomerId
+GROUP BY (i.CustomerId)
+ORDER BY Total_paid desc
+LIMIT 3 
+
+Second Query :
+select A.name , count(*)
+from MediaType A
+Join Track B
+on A.MediaTypeId = B.MediaTypeId
+join InvoiceLine C
+on B.TrackId = C.TrackId
+group by 1
+
+Third Query :
+Select  A.Name,COUNT(*)
+from Track A
+join Album B
+on A.AlbumId=B.ALBUMID
+join InvoiceLine C
+on A.TrackId = C.TrackId
+GROUP BY 1
+order by 2  desc
+limit 10
+
+Fourth Query :
+Select  A.ArtistId,COUNT(*) AS Number_of_albums
+from Artist A
+JOIN Album B
+ON A.ArtistId=B.ArtistId
+GROUP BY 1
+ order by 2 DESC
+ limit 3
+
